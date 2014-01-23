@@ -5,11 +5,12 @@
 set -e
 #set -x
 
-
+LOCAL_TTY="/dev/ttyUSB0"
 BOARD_HOSTNAME="armadillo"
 BOARD_USERNAME="root"
+BOARD_TTY="/dev/ttySC1"
 SCI_ID="1"
-LOCAL_TTY="/dev/ttySC1"
-# Run tty-ping.py to connect Host PC with the Board
-$(dirname $0)/../common/suspend.py $BOARD_HOSTNAME $BOARD_USERNAME $SCI_ID $LOCAL_TTY
+# Run suspend.py to connect Host PC with the Board
+$(dirname $0)/../common/suspend.py $LOCAL_TTY $BOARD_HOSTNAME $BOARD_USERNAME \
+	$BOARD_TTY $SCI_ID
 
